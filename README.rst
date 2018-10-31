@@ -51,7 +51,7 @@ How to run the pipeline
 
 .. code-block:: bash
 
-	1. First change the **reference freeze** in the config file depending on your dataset.
+	1. First change the "reference freeze" in the config file depending on your dataset.
 	2. Run on a SGE cluster (or modify according to your system)
 	
 	snakemake -p -j 10 -s Snakefile --configfile config.yaml --cluster-config cluster.yaml -c "qsub -cwd -e error.txt -o output.txt -V -l h_vmem={cluster.h_vmem} -l mem_free={cluster.mem_free} -l m_mem_free={cluster.m_mem_free} -pe smp {threads}" &

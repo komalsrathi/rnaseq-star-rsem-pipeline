@@ -1,0 +1,47 @@
+
+freeze: mm10_ercc92
+
+############################################################
+# top level directories
+sourcedir: /mnt/isilon/cbmi/variome/rathik/nasa_rnaseq
+refdir: /mnt/isilon/cbmi/variome/reference
+############################################################
+
+# software, binaries or tools
+tools:
+  fastqdump: fastq-dump
+  star: STAR
+  rsem: 
+    calcexp: rsem-calculate-expression
+    prepref: rsem-prepare-reference
+
+# reference files, genome indices and data
+reference:
+  stargenomedir: 
+    hg38: $refdir/star_db/hg38_no_alt
+    hg19: $refdir/star_db/hg19
+    mm10: $refdir/star_db/mm10
+    mm10_ercc92: $refdir/star_db/mm10_M17_ERCC92
+  rsemgenomedir: 
+    hg38: $refdir/rsem_db/hg38/hg38
+    hg19: $refdir/rsem_db/hg19/hg19
+    mm10: $refdir/rsem_db/mm10/mm10
+    mm10_ercc92: $refdir/rsem_db/mm10_M17_ERCC92/mm10_M17_ERCC92
+  fasta: 
+    hg38: $refdir/hg38/hg38_no_alt.fa
+    hg19: $refdir/human/hg19/hg19.fa
+    mm10: $refdir/Mus_musculus/UCSC/mm10/Sequence/WholeGenomeFasta/genome.fa
+    mm10_ercc92: $refdir/ERCC92/mm10_ERCC92.fa
+  gtf: 
+    hg38: $refdir/gencode/v23/gencode.v23.annotation.gtf
+    hg19: $refdir/gencode/v19/gencode.v19.annotation.gtf
+    mm10: $refdir/gencode/M12/gencode.vM12.annotation.gtf
+    mm10_ercc92: $refdir/ERCC92/gencode.vM17.annotation_ERCC92.gtf
+
+# directory structure for input and output files
+datadirs:
+  samples: $sourcedir/samples.txt
+  sra: $sourcedir/data
+  fastq: $sourcedir/fastq
+  bam: $sourcedir/bam
+  quant: $sourcedir/quant

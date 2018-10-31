@@ -1,0 +1,24 @@
+fastq_dump:
+  h_vmem: 20G
+  mem_free: 16G
+  m_mem_free: 14G
+
+star_genome:
+  h_vmem: 10G
+  mem_free: 8G
+  m_mem_free: 7G
+
+rsem_genome:
+  h_vmem: 3G
+  mem_free: 2G
+  m_mem_free: 2G
+
+star_align:
+  h_vmem: 8G
+  mem_free: 8G
+  m_mem_free: 7G
+
+rsem_norm:
+  h_vmem: 6G
+  mem_free: 3G
+  m_mem_free: 3G

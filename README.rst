@@ -31,7 +31,7 @@ There are five steps in this pipeline:
 2. RSEM genome generation
 3. SRA to FASTQ conversion
 4. STAR alignment
-5. RSEM normalization
+5. RSEM normalization. This step creates gene and transcript level quantifications.
 
 Installation
 ============
@@ -51,8 +51,10 @@ How to run the pipeline
 
 .. code-block:: bash
 
-	# to run on a SGE cluster
-	snakemake -p -j 10 -s Snakefile --cluster-config cluster.yaml -c "qsub -cwd -e error.txt -o output.txt -V -l h_vmem={cluster.h_vmem} -l mem_free={cluster.mem_free} -l m_mem_free={cluster.m_mem_free} -pe smp {threads}" &
+	1. First change the **reference freeze** in the config file depending on your dataset.
+	2. Run on a SGE cluster (or modify according to your system)
+	
+	snakemake -p -j 10 -s Snakefile --configfile config.yaml --cluster-config cluster.yaml -c "qsub -cwd -e error.txt -o output.txt -V -l h_vmem={cluster.h_vmem} -l mem_free={cluster.mem_free} -l m_mem_free={cluster.m_mem_free} -pe smp {threads}" &
 
 .. links:
 .. _bioRxiv: https://www.biorxiv.org/content/early/2016/07/07/062497
